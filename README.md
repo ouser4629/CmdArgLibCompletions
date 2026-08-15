@@ -1,5 +1,5 @@
 <!-- 
-//  Copyright (c) 2025-2026 Psummerland2.
+//  Copyright (c) 2025-2026 Peter Buenafuente Summerland.
 //  All rights reserved.
 //
 //  This Source Code Form is subject to the terms of the Mozilla Public
@@ -9,7 +9,7 @@
 
 ## CmdArgLibCompletions
 
-CmdArgLibCompletions is part of the [Command Argument Library](https://github.com/psummerland2/cmd-arg-lib.git). 
+CmdArgLibCompletions is part of the [Command Argument Library](https://github.com/ouser4629/cmd-arg-lib.git). 
 
 It provides [CompletionGenerator](#completiongenerator), a meta-option element for generating shell completion scripts.
 
@@ -222,20 +222,20 @@ added to the completion script.
 It is often useful, however, to add a completion meta-option to all commands in the hierarchy. In
 particular, this allows for abbreviated descriptions (or no description) in suggestion screens.
 
-The [Command Argument Library](https://github.com/psummerland2/cmd-arg-lib.git) repository has an example, 
+The [Command Argument Library](https://github.com/ouser4629/cmd-arg-lib.git) repository has an example, 
 `Ex04_Advice`, that offers shell completion for a command with subcommands.
 
 ---
 
 ## Installation
 
-It is recommended that you install the examples using [`caltool`](https://github.com/psummerland2/cmd-arg-lib-tool.git).
+It is recommended that you install the examples using [`caltool`](https://github.com/ouser4629/cmd-arg-lib-tool.git).
 
 <details>
 <summary>Installation</summary>
 
 ```
-> git clone https://github.com/psummerland2/CmdArgLibCompletions.git
+> git clone https://github.com/ouser4629/CmdArgLibCompletions.git
 
 > cd CmdArgLibCompletions
 
@@ -298,6 +298,6 @@ This software:
 
 ## See Also
 
-[CmdArgLibMacros](https://github.com/psummerland2/CmdArgLibMacros.git), 
-[CmdArgLibCommandNodeStruct](https://github.com/psummerland2/CmdArgLibCommandNodeStruct.git), 
-[CmdArgLibCore](https://github.com/psummerland2/CmdArgLibCore.git) 
+[CmdArgLibMacros](https://github.com/ouser4629/CmdArgLibMacros.git), 
+[CmdArgLibCommandNodeStruct](https://github.com/ouser4629/CmdArgLibCommandNodeStruct.git), 
+[CmdArgLibCore](https://github.com/ouser4629/CmdArgLibCore.git) 
