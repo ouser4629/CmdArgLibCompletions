@@ -6,7 +6,7 @@
 //  file, You can obtain one at https://mozilla.org/MPL/2.0.
 
 import CmdArgLibCore
-import CmdArgLibCommandNodeStruct
+import CmdArgLibCommandNodeFrame
 import CmdArgLibCompletions
 import CmdArgLibHelpScreen
 
@@ -18,7 +18,7 @@ typealias Password = String
 typealias Shell = CompletionGenerator
 
 @main
-struct Example1: CommandNodeStruct {
+struct Example1: CommandNodeFrame {
     var encoding: Encoding = .utf8
     var password: Password? = nil
     var config: ConfigFile? = nil

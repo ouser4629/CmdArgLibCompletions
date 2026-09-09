@@ -20,7 +20,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/ouser4629/CmdArgLibCore.git", branch: "main"),
         .package(url: "https://github.com/ouser4629/CmdArgLibMacros.git", branch: "main"),
-        .package(url: "https://github.com/ouser4629/CmdArgLibCommandNodeStruct.git", branch: "main"),
+        .package(url: "https://github.com/ouser4629/CmdArgLibCommandNodeFrame.git", branch: "main"),
         .package(url: "https://github.com/ouser4629/CmdArgLibHelpScreen.git", branch: "main"),
     ],
     targets: [
@@ -34,7 +34,7 @@ let package = Package(
         ),
         .executableTarget(
             name: "FilesS",
-            dependencies: ["CmdArgLibCore", "CmdArgLibHelpScreen", "CmdArgLibCommandNodeStruct", "CmdArgLibCompletions"]
+            dependencies: ["CmdArgLibCore", "CmdArgLibHelpScreen", "CmdArgLibCommandNodeFrame", "CmdArgLibCompletions"]
         ),
     ]
 )
