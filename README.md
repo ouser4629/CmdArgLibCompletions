@@ -293,11 +293,3 @@ This software:
 * is currently in beta (version 0.5.0), and has only been tested for macOS
 
 * requires macOS 12. 
-
----
-
-## See Also
-
-[CmdArgLibMacros](https://github.com/ouser4629/CmdArgLibMacros.git), 
-[CmdArgLibCommandNodeFrame](https://github.com/ouser4629/CmdArgLibCommandNodeFrame.git), 
-[CmdArgLibCore](https://github.com/ouser4629/CmdArgLibCore.git) 
