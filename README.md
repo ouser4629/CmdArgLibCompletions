@@ -235,30 +235,37 @@ It is recommended that you install the examples using [`caltool`](https://github
 <summary>Installation</summary>
 
 ```
+## Clone and build
+#
 > git clone https://github.com/ouser4629/CmdArgLibCompletions.git
-
 > cd CmdArgLibCompletions
+CmdArgLibCompletions> swift build -c release
+...
 
-> swift build -c release
-
-> caltool install -c fish zsh
-files-m
-    installed "files-m" in /Users/ps/.local/bin
-    installed "files-m.fish" in /Users/ps/.config/fish/completions
-    installed "_files-m" in /Users/ps/.config/zsh/completions
-files-s
-    installed "files-s" in /Users/ps/.local/bin
-    installed "files-s.fish" in /Users/ps/.config/fish/completions
-    installed "_files-s" in /Users/ps/.config/zsh/completions
+## Install
+#
+CmdArgLibCompletions> caltool install  --with-completion-scripts fish zsh
+completion-files-m
+    installed "completion-files-m" in "/Users/ps/.local/bin"
+    installed "completion-files-m.fish" in "/Users/ps/.config/fish/completions"
+    installed "_completion-files-m" in "/Users/ps/.config/zsh/completions"
+completion-files-s
+    installed "completion-files-s" in "/Users/ps/.local/bin"
+    installed "completion-files-s.fish" in "/Users/ps/.config/fish/completions"
+    installed "_completion-files-s" in "/Users/ps/.config/zsh/completions"
     
-## Open new tab to refresh completion path
+## Open new tab to refresh completion path and make a new directory
+#
+cd
+rm -rf Demo && mkdir Demo && cd Demo
 
-## Make a new directory, say Demo and set up this:
 
-> tree -L 3
+## Use touch and mkdir to set up this
+#
+Demo> tree -L 3
 .
 ├── config1.json
-├── config2.jon
+├── config2.json
 ├── some.txt
 ├── Text
 │   └── more.txt
@@ -266,18 +273,20 @@ files-s
     └── some.txt~
 
 ## Experiment with completion
+#
+...
 
 ## Go back to the cloned source and clean up
-
-> caltool uninstall
-files-m
-    uninstalled "files-m" in /Users/ps/.local/bin
-    uninstalled "files-m.fish" in /Users/ps/.config/fish/completions
-    uninstalled "_files-m" in /Users/ps/.config/zsh/completions
-files-s
-    uninstalled "files-s" in /Users/ps/.local/bin
-    uninstalled "files-s.fish" in /Users/ps/.config/fish/completions
-    uninstalled "_files-s" in /Users/ps/.config/zsh/completions
+#
+CmdArgLibCompletions> caltool uninstall
+completion-files-m
+    uninstalled "completion-files-m" in "/Users/ps/.local/bin"
+    uninstalled "completion-files-m.fish" in "/Users/ps/.config/fish/completions"
+    uninstalled "_completion-files-m" in "/Users/ps/.config/zsh/completions"
+completion-files-s
+    uninstalled "completion-files-s" in "/Users/ps/.local/bin"
+    uninstalled "completion-files-s.fish" in "/Users/ps/.config/fish/completions"
+    uninstalled "_completion-files-s" in "/Users/ps/.config/zsh/completions"
 ```
 
 </details>

@@ -24,7 +24,7 @@ typealias Shell = CompletionGenerator
 struct Main {
 
     @MainFunctionMacro
-    static func filesM(
+    static func completionFilesM(
         h__help help: MetaFlag = MetaFlag(helpElements: helpLayout),
         e__encoding encoding: Encoding = .utf8,
         p__password password: Password,
@@ -60,7 +60,7 @@ struct Main {
         a corresponding completion script is printed to standard output.
         """
 
-    static let generator = CompletionGenerator(name: "files-m", suggestionElements: generatorSuggestions)
+    static let generator = CompletionGenerator(name: "completion-files-m", suggestionElements: generatorSuggestions)
 
     static let generatorSuggestions: [ShowElement] = [
         .parameter("help", "", .exclusive),

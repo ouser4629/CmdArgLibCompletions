@@ -14,8 +14,8 @@ let package = Package(
     platforms: [.macOS(.v12)],
     products: [
         .library(name: "CmdArgLibCompletions", targets: ["CmdArgLibCompletions"]),
-        .executable(name: "files-m", targets: ["FilesM"]),
-        .executable(name: "files-s", targets: ["FilesS"])
+        .executable(name: "completion-files-m", targets: ["FilesM"]),
+        .executable(name: "completion-files-s", targets: ["FilesS"])
     ],
     dependencies: [
         .package(url: "https://github.com/ouser4629/CmdArgLibCore.git", branch: "main"),

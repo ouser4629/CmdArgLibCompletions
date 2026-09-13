@@ -39,7 +39,7 @@ struct Example1: CommandNodeFrame {
     }
 
     var configuration: CommandNodeConfiguration<Void>? = CommandNodeConfiguration<Void>(
-        commandName: "ex1",
+        commandName: "completion-files-s",
         embellishments: [
             .embellish("encoding", label: "e__encoding", typeName: "Encoding"),
             .embellish("password", label: "p__password", typeName: "Password"),
@@ -70,7 +70,7 @@ struct Example1: CommandNodeFrame {
         a corresponding completion script is printed to standard output.
         """
 
-    static let generator = CompletionGenerator(name: "files-m", suggestionElements: generatorSuggestions)
+    static let generator = CompletionGenerator(name: "completion-files-s", suggestionElements: generatorSuggestions)
 
     static let generatorSuggestions: [ShowElement] = [
         .parameter("help", "", .exclusive),
