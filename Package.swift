@@ -21,27 +21,27 @@ let package = Package(
     platforms: [.macOS(.v12)],
     products: [
         .library(name: "CmdArgLibCompletions", targets: ["CmdArgLibCompletions"]),
-        .executable(name: "completion-files-m", targets: ["FilesM"]),
-        .executable(name: "completion-files-s", targets: ["FilesS"])
+//        .executable(name: "completion-files-m", targets: ["FilesM"]),
+//        .executable(name: "completion-files-s", targets: ["FilesS"])
     ],
     dependencies: [
         .package(url: "https://github.com/ouser4629/CmdArgLibCore.git", branch: "main"),
-        .package(url: "https://github.com/ouser4629/CmdArgLibMacros.git", branch: "main"),
-        .package(url: "https://github.com/ouser4629/CmdArgLibCommandNodeFrame.git", branch: "main"),
-        .package(url: "https://github.com/ouser4629/CmdArgLibHelpScreen.git", branch: "main"),
+//        .package(url: "https://github.com/ouser4629/CmdArgLibMacros.git", branch: "main"),
+//        .package(url: "https://github.com/ouser4629/CmdArgLibCommandNodeFrame.git", branch: "main"),
+//        .package(url: "https://github.com/ouser4629/CmdArgLibHelpScreen.git", branch: "main"),
     ],
     targets: [
         .target(
             name: "CmdArgLibCompletions",
             dependencies: [ "CmdArgLibCore" ]
         ),
-        .executableTarget(
-            name: "FilesM",
-            dependencies: ["CmdArgLibCore", "CmdArgLibHelpScreen", "CmdArgLibMacros", "CmdArgLibCompletions"]
-        ),
-        .executableTarget(
-            name: "FilesS",
-            dependencies: ["CmdArgLibCore", "CmdArgLibHelpScreen", "CmdArgLibCommandNodeFrame", "CmdArgLibCompletions"]
-        ),
+//        .executableTarget(
+//            name: "FilesM",
+//            dependencies: ["CmdArgLibCore", "CmdArgLibHelpScreen", "CmdArgLibMacros", "CmdArgLibCompletions"]
+//        ),
+//        .executableTarget(
+//            name: "FilesS",
+//            dependencies: ["CmdArgLibCore", "CmdArgLibHelpScreen", "CmdArgLibCommandNodeFrame", "CmdArgLibCompletions"]
+//        ),
     ]
 )
