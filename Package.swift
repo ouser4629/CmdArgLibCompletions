@@ -23,6 +23,7 @@ let package = Package(
         .library(name: "CmdArgLibCompletions", targets: ["CmdArgLibCompletions"]),
 //        .executable(name: "completion-files-m", targets: ["FilesM"]),
 //        .executable(name: "completion-files-s", targets: ["FilesS"])
+//        .executable(name: "__cal_fish_completion_tool", targets: ["FishCompletionTool"]),
     ],
     dependencies: [
         .package(url: "https://github.com/ouser4629/CmdArgLibCore.git", branch: "main"),
@@ -42,6 +43,10 @@ let package = Package(
 //        .executableTarget(
 //            name: "FilesS",
 //            dependencies: ["CmdArgLibCore", "CmdArgLibHelpScreen", "CmdArgLibCommandNodeFrame", "CmdArgLibCompletions"]
+//        ),
+//        .executableTarget(
+//            name: "FishCompletionTool",
+//            dependencies: ["CmdArgLibCore", "CmdArgLibMacros", "CmdArgLibHelpScreen", ]
 //        ),
     ]
 )
