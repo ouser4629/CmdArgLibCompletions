@@ -13,7 +13,6 @@
 // limitations under the License.
 
 import CmdArgLibCore
-import CmdArgLibMacros
 import Foundation
 
 func commandAreOK(

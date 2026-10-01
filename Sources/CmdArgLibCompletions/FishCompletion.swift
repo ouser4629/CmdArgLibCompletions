@@ -48,15 +48,15 @@ extension FishCompletion {
             #
 
             function __cal_fish_basic -a requiredCommands subcommands
-              __cal_fish_completion_tool basic -c "$(commandline -opc)" -rc "$requiredCommands" -sc "$subcommands"
+              __cal_fish_completion_tool basic "$(commandline -opc)" "$requiredCommands" "$subcommands"
             end
 
             function __cal_fish_variadic -a requiredCommands subcommands labelSpec
-              __cal_fish_completion_tool variadic -c "$(commandline -opc)" -rc "$requiredCommands" -sc "$subcommands" -vl "$labelSpec"
+              __cal_fish_completion_tool variadic "$(commandline -opc)" "$requiredCommands" "$subcommands" "$labelSpec"
             end
 
             function __cal_fish_positional -a requiredCommands subcommands labelsSpec
-              __cal_fish_completion_tool positional -c "$(commandline -opc)" -rc "$requiredCommands" -sc "$subcommands" -vls "$labelsSpec"
+              __cal_fish_completion_tool positional "$(commandline -opc)" "$requiredCommands" "$subcommands" "$labelsSpec"
             end
 
             """

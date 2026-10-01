@@ -14,41 +14,34 @@
 
 import CmdArgLibCore
 import CmdArgLibHelpScreen
-import CmdArgLibMacros
 import Foundation
 
 @main
 struct Main {
 
-    enum ParameterType: String, CmdArgEnum { case basic, variadic, positional }
-
-    /// Determine if a fish completion suggestion is enabled.
-    /// - Parameters:
-    ///   - parameterType: The case to be checked
-    ///   - commandLineOpc: Command line words up to cursor - (commandline -opc)
-    ///   - requiredCommands: Required preceding commands, separated by whitespace
-    ///   - subcommands: Current command's subcommands, sperated by whitespace.
-    ///   - variadicParameterLabelSpec: "The label spec of the variadic parameter"
-    ///   - allVariadicParameterLabelSpec: "The label specs of all variadic parameters"
-    @MainFunctionMacro()
-    static func __cal_fish_completion_tool(
-        _ parameterType: ParameterType,
-        c commandLineOpc: String,
-        _rc_ requiredCommands: String,
-        _sc_ subcommands: String,
-        _vl_ variadicParameterLabelSpec: String = "",
-        _vls_ allVariadicParameterLabelSpec: String = "",
-        h__help help: MetaFlag = MetaFlag(helpElements: helpElements))
-    {
+    static func main() {
+        let args = CommandLine.arguments
+        let argsCount = args.count
+        if argsCount < 3 {
+            exit(EXIT_FAILURE)
+        }
+        let parameterType = args[1]
+        let commandLineOpc = args[2]
+        let requiredCommands = argsCount > 3 ? args[3] : ""
+        let subcommands = argsCount > 4 ? args[4] : ""
+        let variadicParameterLabelSpec = argsCount > 5 ? args[5] : ""
+        let allVariadicParameterLabelSpec = variadicParameterLabelSpec
         var ok = false
         switch parameterType {
-        case .basic:
+        case "basic":
             ok = commandAreOK(c: commandLineOpc, requiredCommands, subcommands)
-        case .variadic:
+        case "variadic":
             ok = commandAreOK(c: commandLineOpc, requiredCommands, subcommands) &&
             lastLabeIn(commandLineOpc, matches: variadicParameterLabelSpec)
-        case .positional:
+        case "positional":
             ok = positionalOK(commandLineOpc, requiredCommands, subcommands, allVariadicParameterLabelSpec)
+        default:
+            ok = false
         }
         if ok {
             exit(EXIT_SUCCESS)
@@ -57,40 +50,27 @@ struct Main {
         }
     }
 
-    static let helpElements: [ShowElement] = [
-        .text("DESCRIPTION\n", "TDetermine if a fish completion suggestion is enabled."),
-        .synopsis("\nUSAGE\n"),
-        .text("\nPARAMETERS"),
-        .parameter("parameterType","The type of parameter involved (\(ParameterType.orCases("one of")))"),
-        .parameter("commandLineOpc","Command line words up to cursor - (commandline -opc)"),
-        .parameter("requiredCommands","Required preceding commands, separated by whitespace"),
-        .parameter("subcommands","Current command's subcommands, sperated by whitespace."),
-        .parameter("variadicParameterLabelSpec", "The label spec of the current variadic parameter"),
-        .parameter("allVariadicParameterLabelSpec", "The label spec of all variadic parameter"),
-        .parameter("help", "Show help information."),
-    ]
-}
-
-/// Test if can suggest completion for a positional type.
-/// - Parameters:
-///   - commandLineOpc: Command line words up to cursor - (commandline -opc)
-///   - requiredCommands: Required preceding commands, separated by whitespace
-///   - subcommands: Current command's subcommands, sperated by whitespace.
-///   - allVariadicParameterLabelSpec: "The label specs of all variadic parameters"
-func positionalOK(
-    _ commandLineOpc: String,
-    _ requiredCommands: String,
-    _ subcommands: String,
-    _ allVariadicParameterLabelSpec: String) -> Bool
-{
-    if !commandAreOK(c: commandLineOpc, requiredCommands, subcommands) {
-        exit(EXIT_FAILURE)
-    }
-    let variadicLabelSpecs = allVariadicParameterLabelSpec.components(separatedBy: " ").filter { !$0.isEmpty }
-    for labelSpec in variadicLabelSpecs {
-        if lastLabeIn(commandLineOpc, matches: labelSpec) {
-           return false
+    /// Test if can suggest completion for a positional type.
+    /// - Parameters:
+    ///   - commandLineOpc: Command line words up to cursor - (commandline -opc)
+    ///   - requiredCommands: Required preceding commands, separated by whitespace
+    ///   - subcommands: Current command's subcommands, sperated by whitespace.
+    ///   - allVariadicParameterLabelSpec: "The label specs of all variadic parameters"
+    static func positionalOK(
+        _ commandLineOpc: String,
+        _ requiredCommands: String,
+        _ subcommands: String,
+        _ allVariadicParameterLabelSpec: String) -> Bool
+    {
+        if !commandAreOK(c: commandLineOpc, requiredCommands, subcommands) {
+            return false
         }
+        let variadicLabelSpecs = allVariadicParameterLabelSpec.components(separatedBy: " ").filter { !$0.isEmpty }
+        for labelSpec in variadicLabelSpecs {
+            if lastLabeIn(commandLineOpc, matches: labelSpec) {
+                return false
+            }
+        }
+        return true
     }
-   return true
 }
