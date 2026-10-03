@@ -306,6 +306,6 @@ This software:
 
 * is licensed under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
-* is currently in beta (version 0.5.0), and has only been tested for macOS
+* is currently in beta (version 0.5.2)
 
 * requires macOS 12. 
